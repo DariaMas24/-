@@ -19,14 +19,11 @@ class Predator(Animal):
 
 class Plant:
     edible = False #съедобность
-    name = ('')
+    name = ''
     def __init__(self, name):
         self.name = name  # название растения
 
 class Flower(Plant):
-        pass
-
-class Fruit(Plant):
         pass
 
 
