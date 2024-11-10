@@ -1,30 +1,20 @@
-#Функция с параметрами по умолчанию:
-def print_params(a, b, c):
+def print_params(a=1, b='строка', c=True):
     print(a, b, c)
-print_params(1,'строка',True)
 
-print_params(1,2) # не работает
-print(print_params)
 
-print_params(1,2,4, 5) # не работает
-print(print_params)
+print('1.Функция с параметрами по умолчанию:')
+print_params()  # 1
+print_params(b=25)
+print_params(c=[1, 2, 3])
 
-print_params() # не работает
-print(print_params)
-
-print_params(b = 25, a = 1, c = True)
-print(print_params)
-
-#Распаковка параметров
-
-values_list = [1,'строка',True]
+print()
+print('2.Распаковка параметров:')
+values_list = ('Ugansk', 123, True)
 print_params(*values_list)
-values_dict = {'a': 1, 'b': 'строка', 'c': True}
+values_dict = {'a': 'text', 'b': False, 'c': 33}
 print_params(**values_dict)
-print(print_params)
 
-#Распаковка + отдельные параметры
-
-values_list_2 = [1,'строка']
-print_params(*values_list_2, 42) # не работает
-print(print_params)
+print()
+print('3.Распаковка + отдельные параметры:')
+values_list_2 = [54.32, 'Строка']
+print_params(*values_list_2, 42)
