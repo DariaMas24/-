@@ -2,7 +2,7 @@ def introspection_info(obj):
 
     type_of_object = type(obj)
 
-    attributes = dir(obj)
+    attributes = [method for method in dir(obj) if not callable(getattr(obj, method))]
 
     methods = [method for method in dir(obj) if callable(getattr(obj, method))]
 
