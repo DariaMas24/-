@@ -33,31 +33,31 @@ cursor.executemany('''
 INSERT INTO Users (username, email, age, balance) VALUES (?, ?, ?, ?)
 ''', users_data)
 
-# Обновление баланса для каждых двух записей начиная с первой
+
 cursor.execute('''
 UPDATE Users
 SET balance = 500
 WHERE id % 2 == 1
 ''')
 
-# Удаление каждой третьей записи начиная с первой
+
 cursor.execute('''
 DELETE FROM Users
 WHERE id % 3 == 1
 ''')
 
-# Выборка всех записей, кроме тех, у кого возраст равен 60
+
 cursor.execute('''
 SELECT username, email, age, balance
 FROM Users
 WHERE age != 60
 ''')
 
-# Получаем все результаты и выводим их в нужном формате
+
 results = cursor.fetchall()
 for row in results:
     print(f'Имя: {row[0]} | Почта: {row[1]} | Возраст: {row[2]} | Баланс: {row[3]}')
 
-# Сохраняем изменения и закрываем соединение
+
 conn.commit()
 conn.close()
