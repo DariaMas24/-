@@ -1,0 +1,18 @@
+import sqlite3
+    connection = sqlite3.connect("Products.db")
+    cursor = connection.cursor()
+
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS Products(
+    id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT,
+    price INTEGER
+    )
+    ''')
+cursor.execute(' CREATE INDEX IF NOT EXISTS idx_Products ON Products (Products)')
+cursor.execute('INSERT INTO Products (id, title, description, price) VALUES(?, ?, ?)', ('Женские духи', 'Фруктовые', '3000'))
+
+connection.commit()
+connection.close ()
+
